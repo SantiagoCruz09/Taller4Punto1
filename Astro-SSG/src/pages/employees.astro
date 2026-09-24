@@ -1,0 +1,48 @@
+---
+import Badge from "@components/shared/Badge.astro";
+import { EMPLOYEES } from "@data/Employees";
+import type { BadgeType } from "@interfaces/Badge";
+import type { Employee, EmployeeDepartment } from "@interfaces/Employees";
+import MainLayout from "@layouts/MainLayout.astro";
+
+const employees: Employee[] = EMPLOYEES;
+
+const departmentMap: Record<EmployeeDepartment, BadgeType> = {
+  'Sistemas': 'primary',
+  'Ventas': 'success',
+  'Recursos Humanos': 'warning',
+  'Finanzas': 'info',
+  'Logistica': 'secondary',
+}
+---
+<MainLayout>
+  <table class="table table-striped border">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Email</th>
+        <th scope="col">Salario</th>
+        <th scope="col">Departamento</th>
+      </tr>
+    </thead>
+    <tbody>
+      {employees.map((employee) => (
+        <tr>
+          <th scope="row">{employee.id}</th>
+          <td>{employee.name}</td>
+          <td>{employee.lastName}</td>
+          <td>{employee.email}</td>
+          <td>{employee.salary.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+          <td>
+            <Badge
+              text={employee.department}
+              type={departmentMap[employee.department]}
+            />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</MainLayout>
