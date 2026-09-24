@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { DatePage } from './pages/date/date.page';
 import { ProductsPage } from './pages/products/products.page';
 import { UsersPage } from './pages/users/users.page';
+import { EmployeesPage } from './pages/employees/employees.page';
 
 /**
  * Definición de las rutas principales de la aplicación.
@@ -46,6 +47,15 @@ export const routes: Routes = [
    * de mostrar la fecha actual del sistema.
    */
   { path: 'date', component: DatePage },
+
+  /**
+   * Ruta de empleados.
+   *
+   * @remarks
+   * Renderiza el componente `EmployeesPage`, encargado
+   * de mostrar y gestionar el listado de empleados.
+   */
+  { path: 'employees', component: EmployeesPage },
 
   /**
    * Ruta comodín.

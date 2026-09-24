@@ -46,6 +46,7 @@ export class App {
    *     { text: 'Usuarios', url: '/users' },
    *     { text: 'Productos', url: '/products' },
    *     { text: 'Fecha', url: '/date' },
+   *     { text: 'Empleados', url: '/employees' },
    *   ]
    * }
    * ```
@@ -60,6 +61,7 @@ export class App {
       { text: 'Usuarios', url: '/users' },
       { text: 'Productos', url: '/products' },
       { text: 'Fecha', url: '/date' },
+      { text: 'Empleados', url: '/employees' },
     ]
   };
 }

@@ -1,0 +1,29 @@
+<table class="table table-striped border">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Apellido</th>
+			<th scope="col">Email</th>
+			<th scope="col">Salario</th>
+			<th scope="col">Departamento</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (employee of employees; track employee) {
+			<tr>
+				<th scope="row">{{ employee.id }}</th>
+				<td>{{ employee.name }}</td>
+				<td>{{ employee.lastName }}</td>
+				<td>{{ employee.email }}</td>
+				<td>{{ employee.salary | currency }}</td>
+				<td>
+					<dsb-badge-atom
+						[text]="employee.department"
+						[type]="departmentMap[employee.department]" >
+                    </dsb-badge-atom>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
