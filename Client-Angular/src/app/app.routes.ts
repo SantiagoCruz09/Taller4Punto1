@@ -3,6 +3,8 @@ import { DatePage } from './pages/date/date.page';
 import { ProductsPage } from './pages/products/products.page';
 import { UsersPage } from './pages/users/users.page';
 import { EmployeesPage } from './pages/employees/employees.page';
+import { ProjectsPage } from './pages/projects/projects.page';
+import { CategoriesPage } from './pages/categories/categories.page';
 
 /**
  * Definición de las rutas principales de la aplicación.
@@ -23,46 +25,40 @@ export const routes: Routes = [
 
   /**
    * Ruta de usuarios.
-   *
-   * @remarks
-   * Renderiza el componente `UsersPage`, encargado
-   * de mostrar y gestionar el listado de usuarios.
    */
   { path: 'users', component: UsersPage },
 
   /**
    * Ruta de productos.
-   *
-   * @remarks
-   * Renderiza el componente `ProductsPage`, encargado
-   * de mostrar y gestionar el listado de productos.
    */
   { path: 'products', component: ProductsPage },
 
   /**
    * Ruta de la fecha.
-   *
-   * @remarks
-   * Renderiza el componente `DatePage`, encargado
-   * de mostrar la fecha actual del sistema.
    */
   { path: 'date', component: DatePage },
 
   /**
    * Ruta de empleados.
-   *
-   * @remarks
-   * Renderiza el componente `EmployeesPage`, encargado
-   * de mostrar y gestionar el listado de empleados.
    */
   { path: 'employees', component: EmployeesPage },
 
   /**
-   * Ruta comodín.
+   * Ruta de proyectos.
+   */
+  { path: 'projects', component: ProjectsPage },
+
+  /**
+   * Ruta de categorías.
    *
    * @remarks
-   * Captura cualquier ruta no definida y redirige
-   * automáticamente a la ruta de usuarios.
+   * Renderiza el componente `CategoriesPage`, encargado
+   * de mostrar y gestionar el listado de categorías.
+   */
+  { path: 'categories', component: CategoriesPage },
+
+  /**
+   * Ruta comodín.
    */
   { path: '**', redirectTo: 'users' },
 ];

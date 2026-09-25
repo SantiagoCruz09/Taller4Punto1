@@ -1,0 +1,45 @@
+---
+import Badge from "@components/shared/Badge.astro";
+import { PROJECTS } from "@data/Projects";
+import type { BadgeType } from "@interfaces/Badge";
+import type { Project, ProjectStatus } from "@interfaces/Projects";
+import MainLayout from "@layouts/MainLayout.astro";
+
+const projects: Project[] = PROJECTS;
+
+const statusMap: Record<ProjectStatus, BadgeType> = {
+  'Activo': 'success',
+  'Finalizado': 'primary',
+  'Pendiente': 'warning',
+  'Cancelado': 'danger',
+}
+---
+<MainLayout>
+  <table class="table table-striped border">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Presupuesto</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {projects.map((project) => (
+        <tr>
+          <th scope="row">{project.id}</th>
+          <td>{project.name}</td>
+          <td>{project.description}</td>
+          <td>{project.budget.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+          <td>
+            <Badge
+              text={project.status}
+              type={statusMap[project.status]}
+            />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</MainLayout>
